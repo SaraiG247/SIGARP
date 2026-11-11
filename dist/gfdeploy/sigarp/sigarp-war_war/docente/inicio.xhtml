@@ -1,0 +1,26 @@
+<ui:composition template="/WEB-INF/plantillas/panel.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <ui:define name="title">Panel docente</ui:define>
+    <ui:define name="content">
+        <h1>Hola, #{sesionBean.nombre}</h1>
+        <p class="sg-subtitulo">Consulta el histórico del acervo como apoyo para dictaminar anteproyectos.</p>
+
+        <div class="sg-grid-2">
+            <div class="sg-tarjeta">
+                <div class="sg-icono"><i class="pi pi-search"></i></div>
+                <h3>Buscar antecedentes</h3>
+                <p style="margin-bottom: 14px;">Revisa si un tema ya fue abordado y con qué resultado.</p>
+                <p:linkButton value="Explorar acervo" outcome="/explorar" icon="pi pi-search"/>
+            </div>
+            <div class="sg-tarjeta">
+                <div class="sg-icono"><i class="pi pi-chart-bar"></i></div>
+                <h3>Tendencias</h3>
+                <p style="margin-bottom: 14px;">Tecnologías, empresas y áreas más frecuentes por año.</p>
+                <p:linkButton value="Ver estadísticas" outcome="/docente/estadisticas" icon="pi pi-chart-bar"/>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

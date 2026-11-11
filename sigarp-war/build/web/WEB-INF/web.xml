@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+
+    <display-name>SIGARP</display-name>
+
+    <!-- ===================== JSF / PrimeFaces ===================== -->
+    <context-param>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
+        <!-- Cambiar a Production al entregar (oculta los usuarios de prueba del login) -->
+        <param-value>Development</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jakarta.faces.FACELETS_SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- URLs limpias: /admin/inicio.xhtml en lugar de /faces/admin/inicio.xhtml -->
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+
+    <!-- ===================== Seguridad por rol =====================
+         El mecanismo de login está en ConfiguracionSeguridad.java (Jakarta Security),
+         por eso aquí NO va <login-config>. Aquí solo se dice qué rol exige cada carpeta.
+         Todo lo que no aparece aquí es público (index, explorar, acerca, login...). -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Administracion</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Docentes</web-resource-name>
+            <url-pattern>/docente/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>DOCENTE</role-name>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Estudiantes</web-resource-name>
+            <url-pattern>/estudiante/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ESTUDIANTE</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>EnrutadorPanel</web-resource-name>
+            <url-pattern>/panel.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+            <role-name>DOCENTE</role-name>
+            <role-name>ESTUDIANTE</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <deny-uncovered-http-methods/>
+
+    <security-role><role-name>ADMIN</role-name></security-role>
+    <security-role><role-name>DOCENTE</role-name></security-role>
+    <security-role><role-name>ESTUDIANTE</role-name></security-role>
+
+    <!-- ===================== Sesión ===================== -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- ===================== Páginas de error ===================== -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/403.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.xhtml</location>
+    </error-page>
+    <error-page>
+        <exception-type>jakarta.faces.application.ViewExpiredException</exception-type>
+        <location>/error/expirada.xhtml</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.xhtml</location>
+    </error-page>
+</web-app>

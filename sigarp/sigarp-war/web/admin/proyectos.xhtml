@@ -1,0 +1,15 @@
+<ui:composition template="/WEB-INF/plantillas/panel.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <ui:define name="title">Proyectos del acervo</ui:define>
+    <ui:define name="content">
+        <h1>Proyectos del acervo</h1>
+        <p class="sg-subtitulo">Alta, edición, corrección y baja de proyectos.</p>
+        <ui:include src="/WEB-INF/plantillas/partes/en-construccion.xhtml">
+            <ui:param name="hu" value="HU1 · HU7"/>
+            <ui:param name="descripcion" value="Aquí irá la tabla de proyectos con edición, confirmación antes de eliminar y registro en bitácora."/>
+        </ui:include>
+    </ui:define>
+</ui:composition>

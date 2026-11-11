@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+    Página de inicio de sesión. Es la "loginPage" del mecanismo de autenticación
+    (ver ConfiguracionSeguridad.java). Si alguien intenta entrar a /admin/* sin sesión,
+    el servidor lo trae aquí y, al autenticarse, lo regresa a la página que pidió.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="primefaces"
+      xmlns:pt="jakarta.faces.passthrough"
+      lang="es">
+    <f:metadata>
+        <!-- Si ya tiene sesión, no tiene caso mostrar el login: lo mandamos a su panel -->
+        <f:viewAction action="#{loginBean.redirigirSiYaTieneSesion}"/>
+    </f:metadata>
+
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Iniciar sesión · SIGARP</title>
+        <link rel="icon" type="image/svg+xml" href="#{resource['images/isotipo.svg']}"/>
+        <f:facet name="last">
+            <h:outputStylesheet name="css/styles.css"/>
+        </f:facet>
+    </h:head>
+
+    <h:body>
+        <div class="sg-login-fondo">
+            <div class="sg-login">
+                <h:graphicImage name="images/logo-sigarp.svg" styleClass="sg-logo" alt="SIGARP"/>
+                <h1>Iniciar sesión</h1>
+                <p class="sg-subtitulo">Ingresa con tu correo y contraseña</p>
+
+                <h:form id="formLogin">
+                    <p:messages id="mensajes" closable="true"/>
+
+                    <div class="sg-campo">
+                        <p:outputLabel for="correo" value="Correo"/>
+                        <p:inputText id="correo" value="#{loginBean.correo}" required="true"
+                                     requiredMessage="Escribe tu correo."
+                                     pt:type="email" pt:autocomplete="username" pt:autofocus="autofocus"/>
+                    </div>
+
+                    <div class="sg-campo">
+                        <p:outputLabel for="password" value="Contraseña"/>
+                        <p:password id="password" value="#{loginBean.password}" required="true"
+                                    requiredMessage="Escribe tu contraseña."
+                                    feedback="false" toggleMask="true"
+                                    pt:autocomplete="current-password"/>
+                    </div>
+
+                    <!-- ajax="false": el mecanismo de seguridad responde con redirecciones HTTP -->
+                    <p:commandButton value="Entrar" icon="pi pi-sign-in" ajax="false"
+                                     action="#{loginBean.entrar}"/>
+                </h:form>
+
+                <h:panelGroup layout="block" rendered="#{facesContext.application.projectStage eq 'Development'}"
+                              style="margin-top: 18px; font-size: .8rem; color: #6b7280; background: #f9fafb; padding: 10px 12px; border-radius: 8px;">
+                    <strong>Usuarios de prueba</strong> (contraseña <code>Sigarp2026</code>):<br/>
+                    admin@sigarp.mx · docente@sigarp.mx · estudiante@sigarp.mx
+                </h:panelGroup>
+
+                <h:link outcome="/index" styleClass="sg-volver">← Volver al sitio público</h:link>
+            </div>
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets">
+    <header class="sg-topbar">
+        <div class="sg-contenedor">
+            <h:link outcome="/index" styleClass="sg-marca">
+                <h:graphicImage name="images/isotipo.svg" alt="SIGARP"/>
+                <span>
+                    <strong>SIGARP</strong>
+                    <small>Acervo de Residencias · ITO</small>
+                </span>
+            </h:link>
+
+            <!-- Unidades de presentación públicas (arquitectura de la información) -->
+            <nav class="sg-nav">
+                <h:link outcome="/index"        value="Inicio"                styleClass="#{seccion eq 'inicio' ? 'activo' : ''}"/>
+                <h:link outcome="/explorar"     value="Explorar acervo"       styleClass="#{seccion eq 'explorar' ? 'activo' : ''}"/>
+                <h:link outcome="/continuacion" value="Banco de continuación" styleClass="#{seccion eq 'continuacion' ? 'activo' : ''}"/>
+                <h:link outcome="/acerca"       value="Acerca de"             styleClass="#{seccion eq 'acerca' ? 'activo' : ''}"/>
+            </nav>
+
+            <div class="sg-usuario">
+                <ui:fragment rendered="#{not sesionBean.autenticado}">
+                    <h:link outcome="/login" styleClass="sg-btn sg-btn-acento">
+                        <i class="pi pi-sign-in"></i> Iniciar sesión
+                    </h:link>
+                </ui:fragment>
+                <ui:fragment rendered="#{sesionBean.autenticado}">
+                    <span class="sg-nombre">#{sesionBean.nombre}</span>
+                    <h:link outcome="/panel" styleClass="sg-btn sg-btn-acento">
+                        <i class="pi pi-th-large"></i> Mi panel
+                    </h:link>
+                </ui:fragment>
+            </div>
+        </div>
+    </header>
+</ui:composition>

@@ -1,0 +1,34 @@
+<ui:composition template="/WEB-INF/plantillas/panel.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <ui:define name="title">Panel de administración</ui:define>
+    <ui:define name="content">
+        <h1>Hola, #{sesionBean.nombre}</h1>
+        <p class="sg-subtitulo">Panel de la Oficina de Vinculación. Los indicadores se conectarán a la base de datos en HU3/HU7.</p>
+
+        <div class="sg-kpis">
+                <div class="sg-kpi"><div><span>Proyectos en el acervo</span><strong>—</strong></div><i class="pi pi-book"></i></div>
+                <div class="sg-kpi"><div><span>Comentarios por moderar</span><strong>—</strong></div><i class="pi pi-comments"></i></div>
+                <div class="sg-kpi"><div><span>Usuarios registrados</span><strong>—</strong></div><i class="pi pi-users"></i></div>
+                <div class="sg-kpi"><div><span>Empresas vinculadas</span><strong>—</strong></div><i class="pi pi-briefcase"></i></div>
+        </div>
+
+        <div class="sg-grid-2">
+            <p:panel header="Accesos rápidos">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <p:linkButton value="Gestionar proyectos"  outcome="/admin/proyectos"  icon="pi pi-book"/>
+                    <p:linkButton value="Moderar comentarios"  outcome="/admin/moderacion" icon="pi pi-comments" styleClass="ui-button-secondary"/>
+                    <p:linkButton value="Ver estadísticas"     outcome="/docente/estadisticas" icon="pi pi-chart-bar" styleClass="ui-button-help"/>
+                </div>
+            </p:panel>
+            <p:panel header="Actividad reciente">
+                <div class="sg-vacio" style="padding: 20px;">
+                    <i class="pi pi-history"></i>
+                    <p>Aquí se mostrarán los últimos movimientos de la bitácora.</p>
+                </div>
+            </p:panel>
+        </div>
+    </ui:define>
+</ui:composition>

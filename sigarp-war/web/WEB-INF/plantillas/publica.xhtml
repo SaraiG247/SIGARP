@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+    Plantilla de las páginas PÚBLICAS (no requieren sesión).
+    Las páginas la usan con <ui:composition template="/WEB-INF/plantillas/publica.xhtml">
+    y marcan la sección activa del menú con <ui:param name="seccion" value="..."/>.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces"
+      lang="es">
+    <ui:insert name="metadata"/>
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title><ui:insert name="title">Inicio</ui:insert> · SIGARP</title>
+        <link rel="icon" type="image/svg+xml" href="#{resource['images/isotipo.svg']}"/>
+        <f:facet name="last">
+            <h:outputStylesheet name="css/styles.css"/>
+        </f:facet>
+    </h:head>
+
+    <h:body>
+        <ui:include src="/WEB-INF/plantillas/partes/cabecera-publica.xhtml"/>
+
+        <main class="sg-principal">
+            <ui:insert name="content"/>
+        </main>
+
+        <ui:include src="/WEB-INF/plantillas/partes/pie.xhtml"/>
+    </h:body>
+</html>

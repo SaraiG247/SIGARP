@@ -1,0 +1,29 @@
+<ui:composition template="/WEB-INF/plantillas/publica.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+
+    <ui:param name="seccion" value="continuacion"/>
+    <ui:define name="title">Banco de continuación</ui:define>
+
+    <ui:define name="content">
+        <div class="sg-encabezado-pagina">
+            <div class="sg-contenedor">
+                <h1>Banco de proyectos para continuar</h1>
+                <p>Proyectos que sus autores marcaron como disponibles para que un nuevo residente los extienda.</p>
+            </div>
+        </div>
+
+        <section class="sg-seccion" style="padding-top: 28px;">
+            <div class="sg-contenedor">
+                <div class="sg-tarjeta sg-vacio">
+                    <i class="pi pi-replay"></i>
+                    <h3>Todavía no hay propuestas de continuación</h3>
+                    <p>Cuando un autor marque su proyecto como «disponible para continuación», aparecerá aquí.</p>
+                </div>
+            </div>
+        </section>
+    </ui:define>
+</ui:composition>

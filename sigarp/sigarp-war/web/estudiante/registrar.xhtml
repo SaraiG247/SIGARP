@@ -1,0 +1,15 @@
+<ui:composition template="/WEB-INF/plantillas/panel.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <ui:define name="title">Registrar mi proyecto</ui:define>
+    <ui:define name="content">
+        <h1>Registrar mi proyecto</h1>
+        <p class="sg-subtitulo">Captura los datos de tu residencia y adjunta tu expediente final.</p>
+        <ui:include src="/WEB-INF/plantillas/partes/en-construccion.xhtml">
+            <ui:param name="hu" value="HU1"/>
+            <ui:param name="descripcion" value="Formulario de datos del proyecto con carga de informe, manuales y software (PDF/ZIP)."/>
+        </ui:include>
+    </ui:define>
+</ui:composition>

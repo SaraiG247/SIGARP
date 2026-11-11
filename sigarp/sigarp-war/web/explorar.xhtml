@@ -1,0 +1,82 @@
+<ui:composition template="/WEB-INF/plantillas/publica.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+
+    <ui:param name="seccion" value="explorar"/>
+    <ui:define name="title">Explorar acervo</ui:define>
+
+    <!-- Lee ?q=... de la URL (viene del buscador de la página de inicio) -->
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="q" value="#{busquedaBean.texto}"/>
+        </f:metadata>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="sg-encabezado-pagina">
+            <div class="sg-contenedor">
+                <h1>Explorar el acervo</h1>
+                <p>Busca proyectos de residencia por palabra clave y afina con filtros.</p>
+            </div>
+        </div>
+
+        <section class="sg-seccion" style="padding-top: 28px;">
+            <div class="sg-contenedor">
+                <h:form id="formBusqueda">
+                    <div class="sg-explorar">
+
+                        <!-- Filtros (HU2). Las listas se llenarán desde los catálogos de la BD. -->
+                        <div class="sg-tarjeta sg-filtros">
+                            <div class="sg-campo">
+                                <p:outputLabel for="texto" value="Palabras clave"/>
+                                <p:inputText id="texto" value="#{busquedaBean.texto}" placeholder="Título, resumen…"/>
+                            </div>
+                            <div class="sg-campo">
+                                <p:outputLabel for="anio" value="Año"/>
+                                <p:selectOneMenu id="anio" value="#{busquedaBean.anio}">
+                                    <f:selectItem itemLabel="Todos" itemValue=""/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="sg-campo">
+                                <p:outputLabel for="area" value="Área"/>
+                                <p:selectOneMenu id="area" value="#{busquedaBean.area}">
+                                    <f:selectItem itemLabel="Todas" itemValue=""/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="sg-campo">
+                                <p:outputLabel for="tecnologia" value="Tecnología"/>
+                                <p:selectOneMenu id="tecnologia" value="#{busquedaBean.tecnologia}">
+                                    <f:selectItem itemLabel="Todas" itemValue=""/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="sg-campo">
+                                <p:outputLabel for="empresa" value="Empresa"/>
+                                <p:selectOneMenu id="empresa" value="#{busquedaBean.empresa}">
+                                    <f:selectItem itemLabel="Todas" itemValue=""/>
+                                </p:selectOneMenu>
+                            </div>
+                            <p:commandButton value="Buscar" icon="pi pi-search" update="resultados"
+                                             action="#{busquedaBean.buscar}" style="width: 100%;"/>
+                        </div>
+
+                        <!-- Resultados -->
+                        <h:panelGroup id="resultados" layout="block" styleClass="sg-tarjeta">
+                            <div class="sg-vacio">
+                                <i class="pi pi-inbox"></i>
+                                <h3>Aún no hay proyectos en el acervo</h3>
+                                <p>
+                                    <h:outputText value="Buscaste: «#{busquedaBean.texto}». " rendered="#{not empty busquedaBean.texto}"/>
+                                    Los resultados aparecerán aquí cuando se conecte el catálogo (HU2).
+                                </p>
+                            </div>
+                        </h:panelGroup>
+
+                    </div>
+                </h:form>
+            </div>
+        </section>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<!--
+    Payara necesita saber que el GRUPO que devuelve SigarpIdentityStore
+    corresponde al ROL del mismo nombre.
+-->
+<glassfish-web-app error-url="">
+    <security-role-mapping>
+        <role-name>ADMIN</role-name>
+        <group-name>ADMIN</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>DOCENTE</role-name>
+        <group-name>DOCENTE</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>ESTUDIANTE</role-name>
+        <group-name>ESTUDIANTE</group-name>
+    </security-role-mapping>
+    <parameter-encoding default-charset="UTF-8"/>
+</glassfish-web-app>

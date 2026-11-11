@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.j2ee.ejbjarproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/j2ee-ejbjarproject/3">
+            <name>sigarp-ejb</name>
+            <minimum-ant-version>1.6.5</minimum-ant-version>
+            <included-library dirs="200">file.reference.primefaces-16.0.1.jar</included-library>
+            <included-library dirs="200">file.reference.jakarta.faces.jar</included-library>
+            <included-library dirs="200">file.reference.jakarta.enterprise.cdi-api.jar</included-library>
+            <included-library dirs="200">file.reference.jakarta.persistence-api.jar</included-library>
+            <included-library dirs="200">file.reference.jakarta.ejb-api.jar</included-library>
+            <included-library dirs="200">file.reference.jakarta.annotation-api.jar</included-library>
+            <included-library dirs="200">file.reference.jakarta.validation-api.jar</included-library>
+            <source-roots>
+                <root id="src.dir"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.src.dir"/>
+            </test-roots>
+        </data>
+    </configuration>
+</project>

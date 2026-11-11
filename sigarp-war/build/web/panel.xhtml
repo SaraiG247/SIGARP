@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--
+    ENRUTADOR INTERNO POR ROL.
+    Todos los enlaces "Mi panel" apuntan aquí. La página no muestra nada: su viewAction
+    pregunta al servidor qué rol tiene el usuario y lo redirige a /admin, /docente o /estudiante.
+    Está protegida en web.xml (requiere cualquiera de los tres roles).
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      lang="es">
+    <f:metadata>
+        <f:viewAction action="#{ruteoBean.irAInicioSegunRol}"/>
+    </f:metadata>
+    <h:head><title>Redirigiendo · SIGARP</title></h:head>
+    <h:body>Redirigiendo a tu panel…</h:body>
+</html>

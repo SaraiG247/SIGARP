@@ -1,0 +1,72 @@
+<ui:composition template="/WEB-INF/plantillas/publica.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+
+    <ui:param name="seccion" value="acerca"/>
+    <ui:define name="title">Acerca de</ui:define>
+
+    <ui:define name="content">
+        <div class="sg-encabezado-pagina">
+            <div class="sg-contenedor">
+                <h1>Acerca de SIGARP</h1>
+                <p>Sistema Integral de Gestión del Acervo de Residencias Profesionales</p>
+            </div>
+        </div>
+
+        <section class="sg-seccion">
+            <div class="sg-contenedor sg-grid-2">
+                <div class="sg-tarjeta">
+                    <div class="sg-icono"><i class="pi pi-question-circle"></i></div>
+                    <h3>¿Por qué existe?</h3>
+                    <p>
+                        Desde 2015, los expedientes finales de residencia (informe, manuales y software) se han
+                        guardado en carpetas de Google Drive y en discos físicos, sin vínculo entre sí ni con el
+                        registro original del proyecto. SIGARP los centraliza para que ese conocimiento se pueda
+                        buscar y reutilizar.
+                    </p>
+                </div>
+                <div class="sg-tarjeta">
+                    <div class="sg-icono"><i class="pi pi-flag"></i></div>
+                    <h3>Objetivo</h3>
+                    <p>
+                        Desarrollar una plataforma web que centralice el acervo histórico de proyectos de
+                        residencia, para que sirva como conocimiento útil y activo para estudiantes, docentes
+                        y organizaciones externas.
+                    </p>
+                </div>
+                <div class="sg-tarjeta">
+                    <div class="sg-icono"><i class="pi pi-lock"></i></div>
+                    <h3>Privacidad</h3>
+                    <p>
+                        Los datos de contacto de un egresado solo se muestran si él lo autoriza. El acceso a
+                        los archivos completos puede estar restringido según la confidencialidad que indique
+                        la empresa receptora o el propio autor.
+                    </p>
+                </div>
+                <div class="sg-tarjeta">
+                    <div class="sg-icono"><i class="pi pi-sitemap"></i></div>
+                    <h3>Quién lo opera</h3>
+                    <p>
+                        Departamento de Gestión Tecnológica y Vinculación — Oficina de Vinculación del
+                        Instituto Tecnológico de Oaxaca.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sg-seccion sg-seccion-blanca">
+            <div class="sg-contenedor">
+                <h2>Equipo de desarrollo</h2>
+                <p class="sg-subtitulo">Proyecto de la asignatura Desarrollo Web con Enfoque Ágil · Ingeniería en Sistemas Computacionales.</p>
+                <div class="sg-grid-3">
+                    <div class="sg-tarjeta"><h3>Gómez López Saraí</h3><p>Desarrollo</p></div>
+                    <div class="sg-tarjeta"><h3>Manzano Pablo Diego</h3><p>Desarrollo</p></div>
+                    <div class="sg-tarjeta"><h3>Cordero Limón Rogelio Noé</h3><p>Docente</p></div>
+                </div>
+            </div>
+        </section>
+    </ui:define>
+</ui:composition>

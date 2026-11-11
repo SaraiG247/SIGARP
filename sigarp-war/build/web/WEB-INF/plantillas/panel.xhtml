@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+    Plantilla del PANEL (usuarios con sesión iniciada).
+    Distribución del pizarrón: menú lateral (según el rol) + área de contenido.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces"
+      lang="es">
+    <ui:insert name="metadata"/>
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title><ui:insert name="title">Panel</ui:insert> · SIGARP</title>
+        <link rel="icon" type="image/svg+xml" href="#{resource['images/isotipo.svg']}"/>
+        <f:facet name="last">
+            <h:outputStylesheet name="css/styles.css"/>
+        </f:facet>
+    </h:head>
+
+    <h:body>
+        <header class="sg-topbar">
+            <div class="sg-contenedor" style="max-width: none;">
+                <h:link outcome="/panel" styleClass="sg-marca">
+                    <h:graphicImage name="images/isotipo.svg" alt="SIGARP"/>
+                    <span>
+                        <strong>SIGARP</strong>
+                        <small>Acervo de Residencias · ITO</small>
+                    </span>
+                </h:link>
+
+                <div style="flex: 1;"></div>
+
+                <div class="sg-usuario">
+                    <h:link outcome="/index" styleClass="sg-btn sg-btn-contorno" title="Ir al sitio público">
+                        <i class="pi pi-globe"></i>
+                    </h:link>
+                    <span class="sg-nombre">#{sesionBean.nombre}</span>
+                    <span class="sg-rol">#{sesionBean.rolEtiqueta}</span>
+                    <h:form id="formSalir" style="margin: 0;">
+                        <p:commandButton value="Salir" icon="pi pi-sign-out" ajax="false"
+                                         action="#{sesionBean.cerrarSesion}"
+                                         styleClass="ui-button-outlined ui-button-secondary"
+                                         style="color: #fff; border-color: rgba(255,255,255,.6);"/>
+                    </h:form>
+                </div>
+            </div>
+        </header>
+
+        <div class="sg-panel">
+            <aside class="sg-panel-lateral">
+                <ui:include src="/WEB-INF/plantillas/partes/menu-panel.xhtml"/>
+            </aside>
+
+            <section class="sg-panel-contenido">
+                <ui:insert name="content"/>
+            </section>
+        </div>
+    </h:body>
+</html>

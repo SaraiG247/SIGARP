@@ -1,0 +1,18 @@
+<ui:composition template="/WEB-INF/plantillas/publica.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets">
+    <ui:define name="title">Acceso denegado</ui:define>
+    <ui:define name="content">
+        <section class="sg-seccion">
+            <div class="sg-contenedor">
+                <div class="sg-tarjeta sg-vacio">
+                    <i class="pi pi-lock"></i>
+                    <h3>Acceso denegado</h3>
+                    <p style="margin-bottom: 20px;">Tu cuenta no tiene permiso para ver esta sección.</p>
+                    <h:link outcome="/index" styleClass="sg-btn sg-btn-primario">Ir al inicio</h:link>
+                </div>
+            </div>
+        </section>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,11 @@
+<!-- Bloque reutilizable para módulos que aún no se programan. Parámetros: hu, descripcion -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <div class="sg-tarjeta sg-vacio">
+        <i class="pi pi-cog"></i>
+        <h3>Módulo en construcción</h3>
+        <p style="margin-bottom: 14px;">#{descripcion}</p>
+        <p:tag value="#{hu}" severity="info"/>
+    </div>
+</ui:composition>

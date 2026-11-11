@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" role="img" aria-label="SIGARP - Acervo de Residencias Profesionales">
+  <g>
+    <rect width="64" height="64" rx="14" fill="#1C398E"/>
+    <rect x="11" y="19" width="8" height="28" rx="1.5" fill="#FFFFFF"/>
+    <rect x="21" y="13" width="8" height="34" rx="1.5" fill="#FFFFFF" fill-opacity="0.82"/>
+    <rect x="31" y="22" width="7" height="25" rx="1.5" fill="#FFFFFF" fill-opacity="0.62"/>
+    <rect x="13" y="24" width="4" height="1.8" rx="0.9" fill="#1C398E"/>
+    <rect x="23" y="19" width="4" height="1.8" rx="0.9" fill="#1C398E"/>
+    <rect x="9" y="47" width="46" height="3.2" rx="1.6" fill="#F5B301"/>
+    <circle cx="47" cy="27" r="7" fill="none" stroke="#F5B301" stroke-width="3.2"/>
+    <line x1="52" y1="32.2" x2="56" y2="36.4" stroke="#F5B301" stroke-width="3.6" stroke-linecap="round"/>
+  </g>
+  <text x="78" y="34" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="2" fill="#1C398E">SIGARP</text>
+  <text x="79" y="53" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4B5563">Acervo de Residencias Profesionales</text>
+</svg>

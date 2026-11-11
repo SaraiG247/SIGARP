@@ -1,0 +1,35 @@
+<!--
+    Menú lateral del panel. Cada bloque se muestra solo al rol que le corresponde.
+    OJO: ocultar un enlace NO es seguridad; la protección real está en web.xml
+    (security-constraint por carpeta) y en @RolesAllowed de los EJB.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <h:form id="formMenu">
+        <p:menu>
+            <p:submenu label="General">
+                <p:menuitem value="Mi panel"              outcome="/panel"        icon="pi pi-home"/>
+                <p:menuitem value="Explorar acervo"       outcome="/explorar"     icon="pi pi-search"/>
+                <p:menuitem value="Banco de continuación" outcome="/continuacion" icon="pi pi-replay"/>
+            </p:submenu>
+
+            <p:submenu label="Estudiante" rendered="#{sesionBean.estudiante}">
+                <p:menuitem value="Registrar mi proyecto" outcome="/estudiante/registrar"     icon="pi pi-upload"/>
+                <p:menuitem value="Mis proyectos"         outcome="/estudiante/mis-proyectos" icon="pi pi-folder"/>
+            </p:submenu>
+
+            <p:submenu label="Análisis" rendered="#{sesionBean.docente or sesionBean.admin}">
+                <p:menuitem value="Estadísticas del acervo" outcome="/docente/estadisticas" icon="pi pi-chart-bar"/>
+            </p:submenu>
+
+            <p:submenu label="Administración" rendered="#{sesionBean.admin}">
+                <p:menuitem value="Proyectos"            outcome="/admin/proyectos"  icon="pi pi-book"/>
+                <p:menuitem value="Moderar comentarios"  outcome="/admin/moderacion" icon="pi pi-comments"/>
+                <p:menuitem value="Usuarios"             outcome="/admin/usuarios"   icon="pi pi-users"/>
+                <p:menuitem value="Bitácora de cambios"  outcome="/admin/bitacora"   icon="pi pi-history"/>
+            </p:submenu>
+        </p:menu>
+    </h:form>
+</ui:composition>

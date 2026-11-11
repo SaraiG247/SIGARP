@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-application PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Java EE Application 6.0//EN" "http://glassfish.org/dtds/glassfish-application_6_0-1.dtd">
+<!-- Mapeo grupo -> rol para toda la aplicación (lo necesitan los @RolesAllowed del módulo EJB) -->
+<glassfish-application>
+    <security-role-mapping>
+        <role-name>ADMIN</role-name>
+        <group-name>ADMIN</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>DOCENTE</role-name>
+        <group-name>DOCENTE</group-name>
+    </security-role-mapping>
+    <security-role-mapping>
+        <role-name>ESTUDIANTE</role-name>
+        <group-name>ESTUDIANTE</group-name>
+    </security-role-mapping>
+</glassfish-application>

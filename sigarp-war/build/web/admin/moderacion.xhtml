@@ -1,0 +1,15 @@
+<ui:composition template="/WEB-INF/plantillas/panel.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces">
+    <ui:define name="title">Moderar comentarios</ui:define>
+    <ui:define name="content">
+        <h1>Moderar comentarios</h1>
+        <p class="sg-subtitulo">Aprueba o rechaza las valoraciones antes de publicarse.</p>
+        <ui:include src="/WEB-INF/plantillas/partes/en-construccion.xhtml">
+            <ui:param name="hu" value=""/>
+            <ui:param name="descripcion" value="Lista de comentarios en estado PENDIENTE con botones Aprobar / Rechazar."/>
+        </ui:include>
+    </ui:define>
+</ui:composition>
